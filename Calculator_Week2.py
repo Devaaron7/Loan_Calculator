@@ -1,52 +1,38 @@
+#This program will compute the payment amount for the loan, along with the total cost of borrowing.
+#User will supply the amount borrowed, interest, rate and duration.
 
-## Define Variables
+#Reads the amount borrowed, interest rate and loan duration from the user
 
-#Calculates the amount paid towards the principal of the loan, this is the formula paying the principal on the loan after interest bruh bruh.
-def principal_payment(price, down_payment, interest, loan_term, x):
-    r = interest / 1200.0
-    N = loan_term * 12.0
-    P = price - down_payment
-    payment = np.ppmt(r, x, N, P)
-    return payment * (-1)
-
-#Calculates the current monthly expenses   
-def expenses(price, taxes, insurance, maintenance, management, growth, vacancy, rent, x):
+loan_amt = float(input("Enter the Loan Amount: "))
+rate = float(input("Enter the annual interest rate percentage EX: 3.25 for 3.25%: "))
+years = int(input("How many years will take to repay the loan? "))
+hoa = float(input("Enter the HOA fee per month: "))
 
 
+#Compute the interest rate per payment period and the number of payments
+period_rate = rate / 12 / 100  #rate / 12 payments per year
+num_payments = years * 12
 
-#Calculates the .....
+#Compute the payment amount
+payment_amt = period_rate * loan_amt / (1-(1 + period_rate) ** - num_payments) # ** is exponential operator
 
-def mortgage():
-    return int(pp) - int(dp)
+#Compute the total cost of borrowing
+total_cost = num_payments * payment_amt - loan_amt
 
-
-
-pp = input("Enter Purchase Price\n")
-
-dp = input("Enter Down Payment\n")
-
-hoa = input("Enter Hoa\n")
-
-print(" Your mortgage is:" + mortgage())
-
-input()
-
-## Output Code
+#Computing additional expense after HOA fee
+hoa = num_payments + payment_amt #need to work on this 
 
 
+#Display the results
+print(" The payment amount will be $", payment_amt, "per month.")
+print("The total cost of borrowing will be $", total_cost, ".")
+print("Additional expense per month after HOA fee", payment_amt + hoa, ".") # this is wrong it should be 621
 
-Display = """
-principal_payment: {}
-Income:	"""+ Monthly_Rent + """	
-Mortgage Pay:	{}
-Property Tax:	{}
-Total Insurance:	{}	
-Maintenance Cost:	{}	
-Other Cost:	{}	
-Cash Flow:	{}	
-"""
-
-print('******************************************************************************************')
-print('Welcome to Rental Property Calculator')
-print(Display)
-input()
+#principal_payment: {}
+#Income:	"""+ Monthly_Rent + """
+#Mortgage Pay:	{}
+#Property Tax:	{}
+#Total Insurance:	{}
+#Maintenance Cost:	{}
+#Other Cost:	{}
+#Cash Flow:	{}
