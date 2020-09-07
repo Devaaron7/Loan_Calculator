@@ -36,3 +36,4 @@ print("Additional expense per month after HOA fee", payment_amt + hoa, ".") # th
 #Maintenance Cost:	{}
 #Other Cost:	{}
 #Cash Flow:	{}
+
