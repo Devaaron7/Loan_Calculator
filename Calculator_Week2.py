@@ -13,6 +13,12 @@ hoa = float(input("Enter the HOA fee per month: "))
 period_rate = rate / 12 / 100  #rate / 12 payments per year
 num_payments = years * 12
 
+
+print(loan_amt, rate, years, hoa, period_rate, num_payments)
+
+input()
+
+
 #Compute the payment amount
 payment_amt = period_rate * loan_amt / (1-(1 + period_rate) ** - num_payments) # ** is exponential operator
 
