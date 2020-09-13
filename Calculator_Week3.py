@@ -3,7 +3,7 @@
 # 2. Let use a static input when testing code so we're working with the same numbers 
 ## Ex:   loan amount = 10,000 , rate = 4 , years = 30  , hoa = 100
 
-## Using this online calculator to compare our coutput - https://www.bankrate.com/calculators/managing-debt/annual-percentage-rate-calculator.aspx
+## Using this online calculator to compare our output - https://www.bankrate.com/calculators/managing-debt/annual-percentage-rate-calculator.aspx
 
 
 #This program will compute the payment amount for the loan, along with the total cost of borrowing.
