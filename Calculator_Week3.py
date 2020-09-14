@@ -26,7 +26,10 @@ num_payments = years * 12
 payment_amt = period_rate * loan_amt / (1-(1 + period_rate) ** - num_payments) # ** is exponential operator
 
 #Compute the total cost of borrowing
-total_cost = num_payments * payment_amt - loan_amt
+total_cost = num_payments * payment_amt
+
+#Compute the total Interest of borrowing
+total_int = num_payments * payment_amt - loan_amt
 
 #Computing additional expense after HOA fee
 hoa_new = payment_amt + hoa #need to work on this 
@@ -38,5 +41,6 @@ hoa_new = payment_amt + hoa #need to work on this
 #print("Additional expense per month after HOA fee", hoa_new, ".") # Adjusted this since I understand it to be the monthly payments ( including interest) + the monthly HOA fee
 
 print("The payment amount will be $", round(payment_amt, 2), "per month.")  #This is using the rounding function to display number
-print("The total cost of borrowing will be $", round(total_cost, 2), ".") #This is using the rounding function to display number
+print("The total cost of borrowing will be $", round(total_int, 2), ".") #This is using the rounding function to display number
+print("The total cost spent from borrowing will be $", round(total_cost, 2), ".") #This is using the rounding function to display number
 print("Additional expense per month after HOA fee", round(hoa_new, 2), ".") #This is using the rounding function to display number
