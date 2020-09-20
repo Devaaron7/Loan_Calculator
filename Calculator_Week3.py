@@ -1,3 +1,8 @@
+
+import wx
+import Menu_GUI
+
+
 ## Changes to Discuss
 # 1. Using Rounding Floats to get simple answers ( example 3.083212  --->  3.01)
 # 2. Let use a static input when testing code so we're working with the same numbers 
@@ -8,6 +13,42 @@
 
 #This program will compute the payment amount for the loan, along with the total cost of borrowing.
 #User will supply the amount borrowed, interest, rate and duration.
+
+def display_num():
+
+    print("Test Output for GUI")
+    #print("The payment amount will be $", round(payment_amt, 2), "per month.")  #This is using the rounding function to display number
+    #print("The total cost of borrowing will be $", round(total_int, 2), ".") #This is using the rounding function to display number
+    #print("The total cost spent from borrowing will be $", round(total_cost, 2), ".") #This is using the rounding function to display number
+    #print("Additional expense per month after HOA fee", round(hoa_new, 2), ".") #This is using the rounding function to display number
+
+## Class code for GUI
+class MainFrame(Menu_GUI.MyFrame1):
+    def __init__(self,parent): 
+        Menu_GUI.MyFrame1.__init__(self,parent)
+
+    def Process_numb(self, event):
+        frame2.Show(True)
+        self.m_textCtrl5.SetValue(display_num())
+        
+
+class MainFrame2(Menu_GUI.MyFrame2):
+    
+    def __init__(self,parent): 
+        Menu_GUI.MyFrame2.__init__(self,parent)
+    
+    def disp( self, event ):
+        pass
+
+
+
+# Starts the GUI Window        
+app = wx.App(False) 
+frame1 = MainFrame(None)  
+frame1.Show(True)
+frame2 = MainFrame2(None)
+
+app.MainLoop() 
 
 #Reads the amount borrowed, interest rate and loan duration from the user
 
@@ -34,13 +75,9 @@ total_int = num_payments * payment_amt - loan_amt
 #Computing additional expense after HOA fee
 hoa_new = payment_amt + hoa #need to work on this 
 
-
 #Display the results
 #print("The payment amount will be $", payment_amt, "per month.")  #works good!
 #print("The total cost of borrowing will be $", total_cost, ".") # works good! - in other words, this is the interest in Dollars owed on top of the original loan
 #print("Additional expense per month after HOA fee", hoa_new, ".") # Adjusted this since I understand it to be the monthly payments ( including interest) + the monthly HOA fee
 
-print("The payment amount will be $", round(payment_amt, 2), "per month.")  #This is using the rounding function to display number
-print("The total cost of borrowing will be $", round(total_int, 2), ".") #This is using the rounding function to display number
-print("The total cost spent from borrowing will be $", round(total_cost, 2), ".") #This is using the rounding function to display number
-print("Additional expense per month after HOA fee", round(hoa_new, 2), ".") #This is using the rounding function to display number
+#display_num()
