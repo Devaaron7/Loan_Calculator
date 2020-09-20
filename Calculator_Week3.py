@@ -11,15 +11,7 @@ import Menu_GUI
 ## Using this online calculator to compare our output - https://www.bankrate.com/calculators/managing-debt/annual-percentage-rate-calculator.aspx
 
 
-#This program will compute the payment amount for the loan, along with the total cost of borrowing.
-#User will supply the amount borrowed, interest, rate and duration.
 
-def display_num():
-
-    return "The payment amount will be ${} per month.").format(round(payment_amt, 2))
-    #The total cost of borrowing will be $", round(total_int, 2), ".")
-    #print("The total cost spent from borrowing will be $", round(total_cost, 2), ".")
-    #print("Additional expense per month after HOA fee", round(hoa_new, 2), ".")
 
 ## Class code for GUI        
 
@@ -37,8 +29,39 @@ class MainFrame(Menu_GUI.MyFrame1):
         Menu_GUI.MyFrame1.__init__(self,parent)
 
     def Process_numb(self, event):
+        #Reads the amount borrowed, interest rate and loan duration from the user
+        loan_amt = int(frame1.m_textCtrl1.GetValue())
+        rate = int(frame1.m_textCtrl2.GetValue())
+        years = int(frame1.m_textCtrl3.GetValue())
+        hoa = int(frame1.m_textCtrl4.GetValue())
+        #Compute the interest rate per payment period and the number of payments
+        period_rate = rate / 12 / 100  #rate / 12 payments per year
+        num_payments = years * 12
+
+        #Compute the payment amount
+        payment_amt = period_rate * loan_amt / (1-(1 + period_rate) ** - num_payments) # ** is exponential operator
+
+        #Compute the total cost of borrowing
+        total_cost = num_payments * payment_amt
+
+        #Compute the total Interest of borrowing
+        total_int = num_payments * payment_amt - loan_amt
+
+        #Computing additional expense after HOA fee
+        hoa_new = payment_amt + hoa #need to work on this 
+
+        def display_num():
+            return """The payment amount will be ${} per month.\nThe total cost of borrowing will be ${}.\nThe total cost spent from borrowing will be ${}.\nAdditional expense per month after HOA fee is {}.""".format(round(payment_amt, 2), round(total_int, 2), round(total_cost, 2), round(hoa_new, 2))
+
         frame2.Show(True)
+        #frame2.m_textCtrl5.SetValue (display_num())
         frame2.m_textCtrl5.SetValue (display_num())
+
+
+#This program will compute the payment amount for the loan, along with the total cost of borrowing.
+#User will supply the amount borrowed, interest, rate and duration.
+
+
 
 
 # Starts the GUI Window        
@@ -46,37 +69,4 @@ app = wx.App(False)
 frame1 = MainFrame(None)  
 frame1.Show(True)
 frame2 = MainFrame2(None)
-
 app.MainLoop() 
-
-#Reads the amount borrowed, interest rate and loan duration from the user
-
-loan_amt = float(input("Enter the Loan Amount: "))
-rate = float(input("Enter the annual interest rate percentage EX: 3.25 for 3.25%: "))
-years = int(input("How many years will take to repay the loan? "))
-hoa = float(input("Enter the HOA fee per month: "))
-
-
-#Compute the interest rate per payment period and the number of payments
-period_rate = rate / 12 / 100  #rate / 12 payments per year
-num_payments = years * 12
-
-
-#Compute the payment amount
-payment_amt = period_rate * loan_amt / (1-(1 + period_rate) ** - num_payments) # ** is exponential operator
-
-#Compute the total cost of borrowing
-total_cost = num_payments * payment_amt
-
-#Compute the total Interest of borrowing
-total_int = num_payments * payment_amt - loan_amt
-
-#Computing additional expense after HOA fee
-hoa_new = payment_amt + hoa #need to work on this 
-
-#Display the results
-#print("The payment amount will be $", payment_amt, "per month.")  #works good!
-#print("The total cost of borrowing will be $", total_cost, ".") # works good! - in other words, this is the interest in Dollars owed on top of the original loan
-#print("Additional expense per month after HOA fee", hoa_new, ".") # Adjusted this since I understand it to be the monthly payments ( including interest) + the monthly HOA fee
-
-#display_num()

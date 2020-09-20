@@ -17,7 +17,7 @@ import wx.xrc
 class MyFrame1 ( wx.Frame ):
 	
 	def __init__( self, parent ):
-		wx.Frame.__init__ ( self, parent, id = wx.ID_ANY, title = u"Loan Calculator", pos = wx.DefaultPosition, size = wx.Size( 499,329 ), style = wx.DEFAULT_FRAME_STYLE|wx.TAB_TRAVERSAL )
+		wx.Frame.__init__ ( self, parent, id = wx.ID_ANY, title = u"Loan Calculator", pos = wx.DefaultPosition, size = wx.Size( 500,330 ), style = wx.DEFAULT_FRAME_STYLE|wx.TAB_TRAVERSAL )
 		
 		self.SetSizeHintsSz( wx.DefaultSize, wx.DefaultSize )
 		self.SetForegroundColour( wx.SystemSettings.GetColour( wx.SYS_COLOUR_BTNTEXT ) )
@@ -56,9 +56,6 @@ class MyFrame1 ( wx.Frame ):
 		self.m_button1 = wx.Button( sbSizer1.GetStaticBox(), wx.ID_ANY, u"Calculate", wx.DefaultPosition, wx.DefaultSize, 0 )
 		sbSizer1.Add( self.m_button1, 0, wx.ALL|wx.ALIGN_CENTER_HORIZONTAL, 5 )
 		
-		self.m_textCtrl6 = wx.TextCtrl( sbSizer1.GetStaticBox(), wx.ID_ANY, u"testo", wx.DefaultPosition, wx.Size( -1,-1 ), 0 )
-		sbSizer1.Add( self.m_textCtrl6, 0, wx.ALL, 5 )
-		
 		
 		self.SetSizer( sbSizer1 )
 		self.Layout()
@@ -84,14 +81,14 @@ class MyFrame1 ( wx.Frame ):
 class MyFrame2 ( wx.Frame ):
 	
 	def __init__( self, parent ):
-		wx.Frame.__init__ ( self, parent, id = wx.ID_ANY, title = wx.EmptyString, pos = wx.DefaultPosition, size = wx.Size( 500,332 ), style = wx.DEFAULT_FRAME_STYLE|wx.TAB_TRAVERSAL )
+		wx.Frame.__init__ ( self, parent, id = wx.ID_ANY, title = wx.EmptyString, pos = wx.Point( 500,-1 ), size = wx.Size( 500,330 ), style = wx.DEFAULT_FRAME_STYLE|wx.TAB_TRAVERSAL )
 		
 		self.SetSizeHintsSz( wx.DefaultSize, wx.DefaultSize )
 		
 		bSizer1 = wx.BoxSizer( wx.VERTICAL )
 		
-		self.m_textCtrl5 = wx.TextCtrl( self, wx.ID_ANY, u"test", wx.DefaultPosition, wx.Size( -1,250 ), 0 )
-		self.m_textCtrl5.SetFont( wx.Font( 15, 70, 90, 90, False, wx.EmptyString ) )
+		self.m_textCtrl5 = wx.TextCtrl( self, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.Size( -1,250 ), wx.TE_MULTILINE )
+		self.m_textCtrl5.SetFont( wx.Font( 12, 70, 90, 90, False, wx.EmptyString ) )
 		self.m_textCtrl5.SetForegroundColour( wx.Colour( 0, 255, 38 ) )
 		self.m_textCtrl5.SetBackgroundColour( wx.SystemSettings.GetColour( wx.SYS_COLOUR_INFOTEXT ) )
 		
