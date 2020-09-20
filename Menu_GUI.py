@@ -56,6 +56,9 @@ class MyFrame1 ( wx.Frame ):
 		self.m_button1 = wx.Button( sbSizer1.GetStaticBox(), wx.ID_ANY, u"Calculate", wx.DefaultPosition, wx.DefaultSize, 0 )
 		sbSizer1.Add( self.m_button1, 0, wx.ALL|wx.ALIGN_CENTER_HORIZONTAL, 5 )
 		
+		self.m_textCtrl6 = wx.TextCtrl( sbSizer1.GetStaticBox(), wx.ID_ANY, u"testo", wx.DefaultPosition, wx.Size( -1,-1 ), 0 )
+		sbSizer1.Add( self.m_textCtrl6, 0, wx.ALL, 5 )
+		
 		
 		self.SetSizer( sbSizer1 )
 		self.Layout()
@@ -87,7 +90,7 @@ class MyFrame2 ( wx.Frame ):
 		
 		bSizer1 = wx.BoxSizer( wx.VERTICAL )
 		
-		self.m_textCtrl5 = wx.TextCtrl( self, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.Size( -1,250 ), 0 )
+		self.m_textCtrl5 = wx.TextCtrl( self, wx.ID_ANY, u"test", wx.DefaultPosition, wx.Size( -1,250 ), 0 )
 		self.m_textCtrl5.SetFont( wx.Font( 15, 70, 90, 90, False, wx.EmptyString ) )
 		self.m_textCtrl5.SetForegroundColour( wx.Colour( 0, 255, 38 ) )
 		self.m_textCtrl5.SetBackgroundColour( wx.SystemSettings.GetColour( wx.SYS_COLOUR_INFOTEXT ) )
@@ -102,16 +105,8 @@ class MyFrame2 ( wx.Frame ):
 		self.Layout()
 		
 		self.Centre( wx.BOTH )
-		
-		# Connect Events
-		self.m_textCtrl5.Bind( wx.EVT_TEXT, self.disp )
 	
 	def __del__( self ):
 		pass
-	
-	
-	# Virtual event handlers, overide them in your derived class
-	def disp( self, event ):
-		event.Skip()
 	
 
