@@ -16,11 +16,10 @@ import Menu_GUI
 
 def display_num():
 
-    return
-    print("The payment amount will be $", round(payment_amt, 2), "per month.")  #This is using the rounding function to display number
-    print("The total cost of borrowing will be $", round(total_int, 2), ".") #This is using the rounding function to display number
-    print("The total cost spent from borrowing will be $", round(total_cost, 2), ".") #This is using the rounding function to display number
-    print("Additional expense per month after HOA fee", round(hoa_new, 2), ".") #This is using the rounding function to display number
+    return "The payment amount will be ${} per month.").format(round(payment_amt, 2))
+    #The total cost of borrowing will be $", round(total_int, 2), ".")
+    #print("The total cost spent from borrowing will be $", round(total_cost, 2), ".")
+    #print("Additional expense per month after HOA fee", round(hoa_new, 2), ".")
 
 ## Class code for GUI        
 
