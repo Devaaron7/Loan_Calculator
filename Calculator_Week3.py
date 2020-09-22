@@ -15,7 +15,7 @@ loan_amt = float(input("Enter the Loan Amount: "))
 rate = float(input("Enter the annual interest rate percentage EX: 3.25 for 3.25%: "))
 years = int(input("How many years will take to repay the loan? "))
 hoa = float(input("Enter the HOA fee per month: "))
-
+tax = float(input("Whats the yearly Tax amount?: "))
 
 #Compute the interest rate per payment period and the number of payments
 period_rate = rate / 12 / 100  #rate / 12 payments per year
